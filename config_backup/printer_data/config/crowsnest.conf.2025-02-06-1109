@@ -1,0 +1,70 @@
+#### crowsnest.conf
+#### This is a typical default config.
+#### Also used as default in mainsail / MainsailOS
+#### See:
+#### https://github.com/mainsail-crew/crowsnest/blob/master/README.md
+#### for details to configure to your needs.
+
+
+#####################################################################
+####                                                            #####
+####      Information about ports and according URL's           #####
+####                                                            #####
+#####################################################################
+####                                                            #####
+####    Port 8080 equals /webcam/?action=[stream/snapshot]      #####
+####    Port 8081 equals /webcam2/?action=[stream/snapshot]     #####
+####    Port 8082 equals /webcam3/?action=[stream/snapshot]     #####
+####    Port 8083 equals /webcam4/?action=[stream/snapshot]     #####
+####                                                            #####
+#####################################################################
+
+
+[crowsnest]
+log_path: ~/printer_data/logs/crowsnest.log
+log_level: verbose                      # Valid Options are quiet/verbose/debug
+delete_log: true                       # Deletes log on every restart, if set to true
+
+[cam 1]
+mode: ustreamer                              # mjpg/rtsp
+enable_rtsp: false
+port: 8080                              # Port
+device:  /dev/v4l/by-id/usb-046d_C270_HD_WEBCAM_06DA4980-video-index0                     # See Log for available ...
+resolution: 640x480                     # widthxheight format
+max_fps: 15                             # If Hardware Supports this it will be forced, otherwise ignored/coerced.
+#custom_flags:                          # You can run the Stream Services with custom flags.
+#v4l2ctl:                               # Add v4l2-ctl parameters to setup your camera, see Log what your cam is capable of.
+
+[cam 4]
+mode: ustreamer                              # mjpg/rtsp
+enable_rtsp: false
+port: 8081                              # Port
+device:  /dev/v4l/by-id/usb-GENERAL_GENERAL_WEBCAM-video-index0                 # See Log for available ...
+resolution: 640x480                     # widthxheight format
+max_fps: 15                             # If Hardware Supports this it will be forced, otherwise ignored/coerced.
+#custom_flags:                          # You can run the Stream Services with custom flags.
+#v4l2ctl:
+
+[cam 2]
+mode: ustreamer                              # mjpg/rtsp
+enable_rtsp: false
+port: 8082                              # Port
+device:  /dev/v4l/by-id/usb-046d_HD_Pro_Webcam_C920_11FEAD8F-video-index0                  # See Log for available ...
+resolution: 640x480                     # widthxheight format
+max_fps: 15                             # If Hardware Supports this it will be forced, otherwise ignored/coerced.
+#custom_flags:                          # You can run the Stream Services with custom flags.
+#v4l2ctl:                               # Add v4l2-ctl parameters to setup your camera, see Log what your cam is capable of.
+
+[cam 3]
+mode: ustreamer                              # mjpg/rtsp
+enable_rtsp: false
+port: 8083                              # Port
+device:      /dev/v4l/by-id/usb-XCG-221208-J_3DO_NOZZLE_CAMERA_4K_01.00.00-video-index0                # See Log for available ...
+resolution: 640x480                     # widthxheight format
+max_fps: 15                             # If Hardware Supports this it will be forced, otherwise ignored/coerced.
+#custom_flags:                          # You can run the Stream Services with custom flags.
+#v4l2ctl:                               # Add v4l2-ctl parameters to setup your camera, see Log what your cam is capable of.
+
+
+
+
